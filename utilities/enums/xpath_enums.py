@@ -1,14 +1,21 @@
-from enum import Enum
+# from enum import Enum
 
 
-class Statistic(Enum):
+class Character():
 	HP = '//*[@id="header_values_hp_percent"]'
 	EXP = '//*[@id="header_values_xp_percent"]'
 	LVL = '//*[@id="header_values_level"]'
 	RUBY = '//*[@id="sstat_ruby_val"]'
 
+	STR = '//*[@id="char_f0"]' 
+	AGI = '//*[@id="char_f1"]'
+	DEX = '//*[@id="char_f2"]'
+	END = '//*[@id="char_f3"]'
+	CHA = '//*[@id="char_f4"]'
+	INT = '//*[@id="char_f5"]'
 
-class Cooldown(Enum):
+
+class Cooldown():
 	EXPEDITION =  '//*[@id="cooldown_bar_text_expedition"]'
 	ARENA = '//*[@id="cooldown_bar_text_arena"]'
 	DUNGEON = '//*[@id="cooldown_bar_text_dungeon"]'
@@ -17,26 +24,23 @@ class Cooldown(Enum):
 	P_CIRCUS = ''
 
 
-class ExpeditionAttack(Enum):
-	FIRST = '//*[@id="expedition_list"]/div[1]/div[2]/button'
-	SECOND = '//*[@id="expedition_list"]/div[2]/div[2]/button'
-	THIRD = '//*[@id="expedition_list"]/div[3]/div[2]/button'
-	FOURTH = '//*[@id="expedition_list"]/div[4]/div[2]/button'
-
-
-class ArenaAttack(Enum):
+class ArenaAttack():
 	FIRST = '//*[@id="content"]/article/aside[2]/section/table/tbody/tr[2]/td[1]/a'
 	SECOND = '//*[@id="content"]/article/aside[2]/section/table/tbody/tr[3]/td[1]/a'
 	THIRD = '//*[@id="content"]/article/aside[2]/section/table/tbody/tr[4]/td[1]/a'
 	FOURTH = '//*[@id="content"]/article/aside[2]/section/table/tbody/tr[5]/td[1]/a'
 
 
-class CircusAttack(Enum):
+class CircusAttack():
 	pass
 
 
-class Reporting(Enum):
+class Reporting():
 	IS_WIN = '//*[@class="reportWin"]'
-	GOLD = '//*[@id="content"]/div[2]/section/table/tbody/tr[1]/td/p[1]' 
+	GOLD = '//*[@id="content"]/div[2]/section/table/tbody/tr[1]/td/p[1]'
+
+
+class Ads():
+	BONUS_BOX = '//*[@id="blackoutDialogLoginBonus"]'
 
 
