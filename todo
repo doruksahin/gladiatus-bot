@@ -1,0 +1,54 @@
+-- FUNCTIONS --
+statü arttırma butonları
+arena saldırısı yapma
+sirk saldırıs yapma
+keşif seferine çıkma
+zindan yapma
+işe gitme
+
+
+-- GÖSTERİLECEKLER --
+para miktarı
+yakut
+seviye
+kalan saldırı
+kalan zindan
+işteyse kalan süre
+arenadaki sıralama
+tecrübe yüzdesi
+arena logu
+zindan logu
+müzayede logu (kazananlar - kaybedilenler)
+zindan seçim butonu
+keşif seçim butonu
+arena saldırısı seçim butonu (circus)
+istatistik - arenadan kazanılan para, kaybedilen para
+istatistik - yemeklerden kazanılan para, kaybedilen para
+
+
+
+
+
+-- ADVENCED --
+Senaryo-1: Saldırıdan sonra can değeri %30 un altına düşerse yiyecek ye.
+Senaryo-2: Zindanda gidebildiğin yerde 2 defa üst üste kaybedersen zindanı yeniden başlat.
+Senaryo-3: Müzayedede çok kısa olduğunda teklif verilmemiş yiyeceklere teklif ver.
+Senaryo-4: Müzayedede çok kısa olduğunda yiyeceklerin fiyatı uygunsa teklif ver.
+Senaryo-5: Para miktarı bir seviyenin üstüne çıkınca marketten meyve al. 
+Senaryo-x: En üstten başlayarak rakiplere bak, yenebileceğini düşündüğün birisine saldır
+
+
+-- TODO --
+Tüm xpathleri belirle, enumla.
+login ol.
+savaş sonucunu raporla. kazanılan para, zafer-bozgun
+görev al
+en optimum şekilde eğitim yap.
+
+istenilen görevleri al
+
+
+
+bnmLe100Lesh
+dodo1234
+s38
