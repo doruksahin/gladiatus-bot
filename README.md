@@ -1,6 +1,4 @@
 # gladiatus-bot
-
-- GUI or CLI. (Maybe a browser extension)
 - Item prefixes and suffixes will be translated to Turkish. Prefix, suffix level ranges will be declared
 - Calculating training cost functions for all 6 attributes, which are hidden by game developers.
 - Hit rate is calculated with AGI + DEX value. https://forum.gladiatus.gameforge.com/forum/thread/4386-direnç-blok-kritik-ve-isabet-şansı-hesaplama-denklemi/
