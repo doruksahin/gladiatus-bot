@@ -12,9 +12,9 @@ def should_i_continue_dungeon(fail_count, max_fail):
         log("Lost {} times in a row.".format(fail_count))
         if max_fail == fail_count:
             log("Restarting because: Lost {} times in a row.".format(fail_count))
-            driver.find_element_by_xpath('//input[@type="submit"]')
+            abandon_dungeon_button = driver.find_element_by_xpath('//input[@type="submit"]')
             time.sleep(5)
-            restart_dungeon_button.click()
+            abandon_dungeon_button.click()
     else:
         log("Battle won.")
 
@@ -31,16 +31,28 @@ def restart_dungeon_if_needed():
 
 
 dungeon_area_links = ['?mod=dungeon&loc={}&sh='.format(i) for i in range(7)]
-def dungeon_loop(dungeon, repeat_count=1, max_fail=2):
+def dungeon_loop(dungeon, repeat_count=1, max_fail=2, skip_boss=False):
     DUNGEON_URL = MAIN_LINK + dungeon_area_links[dungeon] + HASH_CODE
     print(DUNGEON_URL)
     counter = 0
     fail_count = 0
     while repeat_count > counter:
+        boss_pic = None
         counter += 1
         driver.get(DUNGEON_URL)
         time.sleep(3)
         restart_dungeon_if_needed()
+
+        try:
+            log("Searching boss...")
+            boss_pic = locateCenterOnScreen("boss.png")
+        except:
+            log("Boss not found.")
+
+        if skip_boss and boss_pic:
+            log("Skipping boss...")
+            driver.find_element_by_xpath('//input[@type="submit"]').click()
+            continue
 
         try:
             log("Searching image...")
@@ -52,3 +64,5 @@ def dungeon_loop(dungeon, repeat_count=1, max_fail=2):
             if repeat_count > counter:
                 log("No life left. Waiting...")
                 time.sleep(900 + randint(0,10))
+
+

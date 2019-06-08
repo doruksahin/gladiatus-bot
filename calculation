@@ -1,0 +1,88 @@
+Merhaba arkadaşlar, bugün sizlere direnç,blok ve kritik hesaplama denklemlerini söyleyeceğim.
+
+
+
+Not:Benim seviyem 97 ona göre hesapladım.
+
+
+
+Bu denklemler Almanya forumundan alıntıdır...
+
+
+
+O halde başlayalım;
+
+
+
+Direnç hesaplama: Eşyalar nedeniyle x 52 / (seviye-8) / 3
+
+
+
+Çevikliğin 10 un katlarını da işin içine katar isek %1 artış gösterecektir.
+
+
+
+Örnek: 128x52=6656 , 6656/89=74.78 74.78/3=24.92
+
+Çeviklikten de +74 geliyor ve maks %25 oluyor.
+
+
+
+Not:Direnç değeri %25'in üstüne çıkamaz...
+
+
+
+Blok hesaplama: Eşyalar nedeniyle x 52 / (seviye-8) / 6
+
+
+
+Gücün 10 un katlarını da işin içine katar isek %1 artış gösterecektir.
+
+
+
+Örnek:476x52=24752 , 24752/89=278.11 278.11/6=46
+
+Güçten de +11 geliyor %47 oluyor.
+
+
+
+Not: Blok değerlendirmesi değeri %50'in üstüne çıkamaz...
+
+
+
+Kritik hesaplama: Kritik hasar değeri x 52 / (seviye-8) / 5
+
+
+
+Becerinin 10 un katlarını da işin içine katar isek %1 artış gösterecektir.
+
+
+
+Örnek: 315x52=16380 , 16380/89=184.04 , 184.04/5=36
+
+
+
+Not: Kritik hasar değeri %50+10(gazi itibarı)'un üstüne çıkamaz...
+
+
+
+İsabet şansı hesaplama:
+
+
+Beceri toplamı + rakibin çevikliği / 100
+
+
+
+Kendi becerin / 1
+
+
+
+Örnek: 850 + 1100 / 100
+
+
+
+850 / 2.10 = %43.5
+
+
+
+İyi oyunlar dilerim.  

@@ -11,4 +11,4 @@ if __name__ == '__main__':
 	# get_stats()
 	#train(Stats.AGI)
 	#expedition(Areas.PIRATE_HARBOUR, ExpeditionAttack.FIRST)
-	dungeon_loop(dungeon=Areas.MISTY_MOUNTAINS, repeat_count=200)
+	dungeon_loop(dungeon=Areas.WOLF_CAVE, repeat_count=200, skip_boss=True)

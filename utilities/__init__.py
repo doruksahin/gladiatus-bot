@@ -24,4 +24,4 @@ def login(id, password, server):
     MAIN_LINK = 'https://s{}-tr.gladiatus.gameforge.com/game/index.php'.format(server)
     HASH_CODE = driver.current_url.split("=")[4]
 
-# login("bnmLe100Lesh", "dodo1234", 38)
+login("bnmLe100Lesh", "dodo1234", 38)
