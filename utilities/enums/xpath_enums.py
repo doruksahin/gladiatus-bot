@@ -36,8 +36,13 @@ class CircusAttack():
 
 
 class Reporting():
-	IS_WIN = '//*[@class="reportWin"]'
+	WIN = '//*[@class="reportWin"]'
+	LOSE = ".//div[@class='reportLose']"
 	GOLD = '//*[@id="content"]/div[2]/section/table/tbody/tr[1]/td/p[1]'
+
+
+class Dungeon():
+	RESTART_BUTTON = "//*[@id='content']/div[2]/div/form/table/tbody/tr/td[1]/input"
 
 
 class Ads():

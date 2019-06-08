@@ -1,8 +1,8 @@
 import time
+from datetime import datetime
 from . import driver
 
-
-def waitUntilFindXpath(xpath):
+def wait_until_find_xpath(xpath):
     t = True
     failCount = 0
     maxFail = 5
@@ -21,7 +21,7 @@ def waitUntilFindXpath(xpath):
         return element
 
 
-def waitUntilFindXpaths(xpath):
+def wait_until_find_xpaths(xpath):
     t = True
     failCount = 0
     maxFail = 5
@@ -38,3 +38,11 @@ def waitUntilFindXpaths(xpath):
         return None
     else:
         return element
+
+
+def log(text):
+  message = '['+str(datetime.now())+']$ '+ text
+  file = open("automation.log","a") 
+  file.write(message+'\n')
+  file.close()
+  print(message)
