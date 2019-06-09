@@ -66,3 +66,13 @@ def dungeon_loop(dungeon, repeat_count=1, max_fail=2, skip_boss=False):
                 time.sleep(900 + randint(0,10))
 
 
+
+# No dependency to pyautogui
+# fetch data of dungeon code, which is changing all the time
+# sira ile 1 e saldirmayi dene, eger 1. rakip yoksa sayfa refresh atacak, zindan remaining time sayacindan kontrol et.
+def dungeon_loop_independent(dungeon, repeat_count=1, max_fail=2, skip_boss=False):
+    driver.execute_script("startFight('1', '99055');")
+    if driver.find_element_by_xpath('//div[@class="map_label"]').text == "Patron":
+        log("Boss found.")
+        if skip_boss:
+            log("Boss skipped")

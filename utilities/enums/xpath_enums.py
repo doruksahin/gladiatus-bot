@@ -6,6 +6,8 @@ class Character():
 	EXP = '//*[@id="header_values_xp_percent"]'
 	LVL = '//*[@id="header_values_level"]'
 	RUBY = '//*[@id="sstat_ruby_val"]'
+	RANK = '//*[@id="highscorePlace"]'
+	GOLD = '//*[@id="sstat_gold_val"]'
 
 	STR = '//*[@id="char_f0"]' 
 	AGI = '//*[@id="char_f1"]'
@@ -19,9 +21,21 @@ class Cooldown():
 	EXPEDITION =  '//*[@id="cooldown_bar_text_expedition"]'
 	ARENA = '//*[@id="cooldown_bar_text_arena"]'
 	DUNGEON = '//*[@id="cooldown_bar_text_dungeon"]'
-	P_ARENA = ''
 	CIRCUS = '//*[@id="cooldown_bar_text_ct"]'
-	P_CIRCUS = ''
+
+
+class PointRemaining():
+	EXPEDITION = '//*[@id="expeditionpoints_value_point"]'
+	DUNGEON = '//*[@id="dungeonpoints_value_point"]'
+	
+
+class ArenaRank():
+	ARENA = '//*[@id="arenaPlace"]'
+	CIRCUS = '//*[@id="grouparenaPlace"]'
+
+class PointMax():
+	EXPEDITION = '//*[@id="expeditionpoints_value_pointmax"]'
+ 	DUNGEON = '//*[@id="dungeonpoints_value_pointmax"]'
 
 
 class ArenaAttack():

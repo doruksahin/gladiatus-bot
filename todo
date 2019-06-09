@@ -1,19 +1,8 @@
--- FUNCTIONS --
-arena saldırısı yapma
-sirk saldırısı yapma
-keşif seferine çıkma
-işe gitme
-
+Kurt ini - ilk düşman: onclick="startFight('1', '99055');showWait();return false;" 
+		ikinci düşman: onclick="startFight('2', '99055');showWait();return false;" 
 
 -- GÖSTERİLECEKLER --
-para miktarı
-yakut
-seviye
-kalan saldırı
-kalan zindan
 işteyse kalan süre
-arenadaki sıralama
-tecrübe yüzdesi
 müzayede logu (kazananlar - kaybedilenler)
 zindan seçim butonu
 keşif seçim butonu

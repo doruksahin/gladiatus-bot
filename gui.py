@@ -3,7 +3,10 @@ import Tkinter as tk
 from Tkinter import *
 from tkinter import ttk
 import tkMessageBox
-
+from utilities.enums.xpath_enums import Character
+from utilities.enums.enums import Stats
+from utilities.funcs_character import set_stat_labels, set_hp_labels, set_character_item_labels, set_point_labels
+from utilities.funcs_training import set_training_stat_frames, calculate_ranged_training_cost
 
 def get_auction_time():
 	pass
@@ -20,17 +23,17 @@ def add_wanted_item(keyword):
 
 
 def set_selected_index(evt):
-    global selected
-    w = evt.widget
-    index = int(w.curselection()[0])
-    selected = index
-    print("Selected item:", selected)
+	global selected
+	w = evt.widget
+	index = int(w.curselection()[0])
+	selected = index
+	print("Selected item:", selected)
 
 
-def set_selected_auction_chk_frequency(evt)
+def set_selected_auction_chk_frequency(evt):
 	global auction_chk_frequency_type
-    w = evt.widget
-    auction_chk_frequency_type = int(w.curselection()[0])
+	w = evt.widget
+	auction_chk_frequency_type = int(w.curselection()[0])
 
 
 def delete_wanted_item():
@@ -43,6 +46,9 @@ def populate_auction_refresh_rate_listbox(listbox):
 	listbox.insert(END, "minute(s)")
 	listbox.insert(END, "hour(s)")
 
+
+def activate():
+	pass
 
 
 if __name__ == '__main__':
@@ -60,6 +66,38 @@ if __name__ == '__main__':
 	# character tab
 	character_frame = Frame(character_tab)
 	character_frame.pack()
+	character_stats_frame = Frame(character_frame)
+	character_stats_frame.pack(side=LEFT)
+	stat_labels = []
+	for i in range(6):
+		stat_labels.append(Label(character_stats_frame))
+		stat_labels[i].pack(side=TOP)
+	set_stat_labels(stat_labels)
+	
+	character_hp_frame = Frame(character_frame)
+	character_hp_frame.pack(side=LEFT)
+	hp_labels = []
+	for i in range(6):
+		hp_labels.append(Label(character_hp_frame))
+		hp_labels[i].pack(side=TOP)
+	set_hp_labels(hp_labels)
+
+	character_items_frame = Frame(character_frame)
+	character_frame.pack(side=LEFT)
+	character_item_labels = []
+	for i in range(9):
+		character_item_labels.append(Label(character_items_frame))
+		character_item_labels[i].pack(side=TOP)
+	set_character_item_labels(character_item_labels)
+
+	character_points_frame = Frame(character_frame)
+	character_points_frame.pack(side=LEFT)
+	character_points_labels = []
+	for i in range(4):
+		character_points_labels.append(Label(character_points_frame))
+		character_points_labels[i].pack(side=TOP)
+	set_point_labels(character_points_labels)
+
 
 
 	# mercenaries tab
@@ -73,65 +111,30 @@ if __name__ == '__main__':
 	do_training_frame = Frame(training_frame)
 	do_training_frame.pack(side=LEFT)
 
-	str_frame = Frame(do_training_frame)
-	str_frame.pack(side=TOP)
-	Label(str_frame, text="STR").pack(side=LEFT)
-	str_current_label = Label(str_frame, text= "Current {}".format(current_str))
-	str_current_label.pack(side=LEFT)
-	str_train_button = Button(str_frame, text="+", command=train(Stats.STR))
-	str_train_button.pack(side=LEFT)
-	str_train_cost = Label(str_frame, "Cost: {}".format(calculate_training_cost(Stats.STR, current_str)))
-	str_train_cost.pack(side=LEFT)
+	training_stats_frame = Frame(training_frame)
+	training_stats_frame.pack(side=LEFT)
+	training_stat_labels = []
+	for i in range(6):
+		training_stat_labels.append(Label(training_frame))
+		training_stat_labels[i].pack(side=TOP)
+	set_stat_labels(training_stat_labels)
 
-	agi_frame = Frame(do_training_frame)
-	agi_frame.pack(side=TOP)
-	Label(agi_frame, text="AGI").pack(side=LEFT)
-	agi_current_label = Label(agi_frame, text= "Current {}".format(current_agi))
-	agi_current_label.pack(side=LEFT)
-	agi_train_button = Button(agi_frame, text="+", command=train(Stats.AGI))
-	agi_train_button.pack(side=LEFT)
-	agi_train_cost = Label(agi_frame, "Cost: {}".format(calculate_training_cost(Stats.AGI, current_agi)))
-	agi_train_cost.pack(side=LEFT)
 
-	dex_frame = Frame(do_training_frame)
-	dex_frame.pack(side=TOP)
-	Label(dex_frame, text="DEX").pack(side=LEFT)
-	dex_current_label = Label(dex_frame, text= "Current {}".format(current_dex))
-	dex_current_label.pack(side=LEFT)
-	dex_train_button = Button(dex_frame, text="+", command=train(Stats.DEX))
-	dex_train_button.pack(side=LEFT)
-	dex_train_cost = Label(dex_frame, "Cost: {}".format(calculate_training_cost(Stats.DEX, current_dex, range=1)))
-	dex_train_cost.pack(side=LEFT)
+	training_stat_frames = []
+	labels = []
+	buttons = []
+	cost_labels = []
+	for i in range(6):
+		training_stat_frames.append(Frame(do_training_frame))
+		training_stat_frames[i].pack(side=TOP)
+		labels.append(Label(training_stat_frames[i]))
+		labels[i].pack(side=LEFT)
+		buttons.append(Button(training_stat_frames[i], text="+", command=lambda:train(i)))
+		buttons[i].pack(side=LEFT)
+		cost_labels.append(Label(training_stat_frames[i]))
+		cost_labels[i].pack(side=LEFT)
+	set_training_stat_frames(labels, cost_labels)
 
-	end_frame = Frame(do_training_frame)
-	end_frame.pack(side=TOP)
-	Label(end_frame, text="END").pack(side=LEFT)
-	end_current_label = Label(end_frame, text= "Current {}".format(current_end))
-	end_current_label.pack(side=LEFT)
-	end_train_button = Button(end_frame, text="+", command=train(Stats.END))
-	end_train_button.pack(side=LEFT)
-	end_train_cost = Label(end_frame, "Cost: {}".format(calculate_training_cost(Stats.END, current_end)))
-	end_train_cost.pack(side=LEFT)
-
-	cha_frame = Frame(do_training_frame)
-	cha_frame.pack(side=TOP)
-	Label(cha_frame, text="CHA").pack(side=LEFT)
-	cha_current_label = Label(cha_frame, text= "Current {}".format(current_cha))
-	cha_current_label.pack(side=LEFT)
-	cha_train_button = Button(cha_frame, text="+", command=train(Stats.CHA))
-	cha_train_button.pack(side=LEFT)
-	cha_train_cost = Label(cha_frame, "Cost: {}".format(calculate_training_cost(Stats.CHA, current_cha)))
-	cha_train_cost.pack(side=LEFT)
-
-	int_frame = Frame(do_training_frame)
-	int_frame.pack(side=TOP)
-	Label(int_frame, text="INT").pack(side=LEFT)
-	int_current_label = Label(int_frame, text= "Current {}".format(current_int))
-	int_current_label.pack(side=LEFT)
-	int_train_button = Button(int_frame, text="+", command=train(Stats.INT))
-	int_train_button.pack(side=LEFT)
-	int_train_cost = Label(int_frame, "Cost: {}".format(calculate_training_cost(Stats.INT, current_int)))
-	int_train_cost.pack(side=LEFT)
 
 	training_calculator_frame = Frame(training_frame)
 	training_calculator_frame.pack(side=LEFT)
@@ -139,19 +142,19 @@ if __name__ == '__main__':
 	training_calculator_listbox.pack(side=LEFT)
 	current_attributes_frame = Frame(training_calculator_frame)
 	current_attributes_frame.pack(side=LEFT)
-	Label(current_attributes_frame, "STR: {}".format(current_str)).pack(side=TOP)
-	Label(current_attributes_frame, "AGI: {}".format(current_agi)).pack(side=TOP)
-	Label(current_attributes_frame, "DEX: {}".format(current_dex)).pack(side=TOP)
-	Label(current_attributes_frame, "END: {}".format(current_end)).pack(side=TOP)
-	Label(current_attributes_frame, "CHA: {}".format(current_cha)).pack(side=TOP)
-	Label(current_attributes_frame, "INT: {}".format(current_int)).pack(side=TOP)
+	Label(current_attributes_frame, text="STR: ").pack(side=TOP)
+	Label(current_attributes_frame, text="AGI: ").pack(side=TOP)
+	Label(current_attributes_frame, text="DEX: ").pack(side=TOP)
+	Label(current_attributes_frame, text="END: ").pack(side=TOP)
+	Label(current_attributes_frame, text="CHA: ").pack(side=TOP)
+	Label(current_attributes_frame, text="INT: ").pack(side=TOP)
 	training_range_frame = Frame(training_calculator_frame)
-	Label(training_range_frame, "+").pack(side=LEFT)
+	Label(training_range_frame, text="+").pack(side=LEFT)
 	training_range_text = Text(training_range_frame, height=1, width=3)
 	training_range_text.pack(side=LEFT)
-	calculate_training_button = Button(training_calculator_frame, text="Calculate", command=calculate_ranged_training_cost(Stats.DEX, current_dex, range=1))
+	calculate_training_button = Button(training_calculator_frame, text="Calculate", command=lambda:calculate_ranged_training_cost(Stats.DEX, current=0, range=1)) # mocked
 	calculate_training_button.pack(side=LEFT)
-	calculated_cost_label = Label(training_calculator_frame, "Cost:")
+	calculated_cost_label = Label(training_calculator_frame, text="Cost:")
 	calculated_cost_label.pack(side=LEFT)
 
 
@@ -163,19 +166,21 @@ if __name__ == '__main__':
 	# auction tab
 	auction_frame = Frame(auction_tab)
 	auction_frame.pack(side=LEFT)
-	auction_status = Label(auction_frame, text="Remaining: {}".format(auction_remaining))
-	auction_status.pack()
+	auction_status = Label(auction_frame, text="Auction Remaining: ")
+	auction_status.pack(side=TOP)
+	m_auction_status = Label(m_auction_frame, text="Mercenary Auction Remaining: ")
+	m_auction_status.pack(side=TOP)
 	mercenary_auction_frame = Frame(auction_tab)
 	mercenary_auction_frame.pack(side=LEFT)
-	mercenary_auction_status = Label(mercenary_auction_frame, text="Remaining: {}".format(mercenary_auction_remaining))
+	mercenary_auction_status = Label(mercenary_auction_frame, text="Remaining: ")
 	wanted_items_frame = Frame(auction_tab)
 	wanted_items_frame.pack(side=LEFT)
 	wanted_item_add_frame = Frame(wanted_items_frame)
 	wanted_item_add_frame.pack(side=TOP)
-	wanted_item_text = Text(wanted_item_add_frame, height=1, width=50)
+	wanted_item_text = Text(wanted_item_add_frame, height=1, width=15)
 	wanted_item_text.pack(side=LEFT)
 	wanted_item_add_button = Button(wanted_item_add_frame, text="Add", command=add_wanted_item)
-	wanted_items_listbox = Listbox(wanted_items_frame, height=30, width=60)
+	wanted_items_listbox = Listbox(wanted_items_frame, height=20, width=15)
 	wanted_items_listbox.pack(side=TOP)
 	wanted_items_listbox.bind('<<ListboxSelect>>', set_selected_index)
 	wanted_item_delete_button = Button(wanted_items_frame, text="Delete", command=delete_wanted_item)
@@ -184,8 +189,9 @@ if __name__ == '__main__':
 	auction_settings_frame.pack(side=LEFT)
 
 	auction_refresh_rate_frame = Frame(auction_settings_frame)
-	refresh_loop = Checkbox(auction_refresh_rate_frame)
-	refresh_loop.pack(side=LEFT)
+	auction_refresh_rate_frame.pack(side=LEFT)
+	# refresh_loop = Checkbox(auction_refresh_rate_frame)
+	# refresh_loop.pack(side=LEFT)
 	Label(auction_refresh_rate_frame, text="Refresh per ").pack(side=LEFT)
 	auction_refresh_rate_text = Text(auction_settings_frame, height=1, width=2)
 	auction_refresh_rate_text.pack(side=LEFT)
@@ -196,6 +202,8 @@ if __name__ == '__main__':
 
 	auction_manual_refresh_button = Button(auction_settings_frame, text="Refresh Auctions", command=get_auction_time)
 	auction_manual_refresh_button.pack(side=BOTTOM)
+	auction_activate_automatic_chk_button = Button(auction_settings_frame, text="Set settings, activate check", command=activate)
+	auction_activate_automatic_chk_button.pack(side=BOTTOM)
 
 
 	# suggestion tab
