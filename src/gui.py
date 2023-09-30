@@ -47,7 +47,6 @@ def populate_auction_refresh_rate_listbox(listbox):
 def activate():
 	pass
 
-
 if __name__ == '__main__':
 	root = Tk()
 	tab_control = ttk.Notebook(root)

@@ -1,6 +1,10 @@
 import time
 from datetime import datetime
-from src.utilities import driver
+from src import driver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
 
 def wait_until_find_xpath(xpath):
     t = True
@@ -9,7 +13,7 @@ def wait_until_find_xpath(xpath):
 
     while t and failCount < maxFail:
         try:
-            element = driver.find_element_by_xpath(xpath)
+            element = WebDriverWait(driver, 1).until(EC.presence_of_element_located((By.XPATH, xpath)))
             t = False
         except:
             t = True
@@ -19,7 +23,6 @@ def wait_until_find_xpath(xpath):
         return None
     else:
         return element
-
 
 def wait_until_find_xpaths(xpath):
     t = True

@@ -1,6 +1,6 @@
 from enums.xpath_enums import Reporting
 import time
-from . import driver, MAIN_LINK, HASH_CODE
+from . import MAIN_LINK, HASH_CODE
 from src.util.util import wait_until_find_xpath, log
 
 
