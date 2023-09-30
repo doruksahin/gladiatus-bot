@@ -1,6 +1,6 @@
 import time
 from datetime import datetime
-from . import driver
+from src.utilities import driver
 
 def wait_until_find_xpath(xpath):
     t = True

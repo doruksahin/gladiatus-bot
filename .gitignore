@@ -1,0 +1,24 @@
+# Python-specific ignores
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# Editor/IDE-specific files (adjust for your editor)
+.idea/
+.vscode/
+.idea/*
+
+# Dependency management
+pip-log.txt
+Pipfile.lock
+Pipfile

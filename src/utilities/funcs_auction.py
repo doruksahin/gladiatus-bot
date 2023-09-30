@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from enums.url_enums import General
-from util import wait_until_find_xpath, wait_until_find_xpaths, log
+from src.util.util import log
 import os
 from . import driver, MAIN_LINK, HASH_CODE
 import time

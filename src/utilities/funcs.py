@@ -1,8 +1,5 @@
-from util import wait_until_find_xpath, wait_until_find_xpaths, log
+from src.util.util import wait_until_find_xpath, log
 import time
-from . import driver
-from random import randint
-
 
 BONUS_BOX = '//*[@id="blackoutDialogLoginBonus"]'
 

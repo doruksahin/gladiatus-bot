@@ -1,12 +1,9 @@
-import Tkinter,tkFileDialog
-import Tkinter as tk
-from Tkinter import *
+from tkinter import *
 from tkinter import ttk
-import tkMessageBox
-from utilities.enums.xpath_enums import Character
 from utilities.enums.enums import Stats
 from utilities.funcs_character import set_stat_labels, set_hp_labels, set_character_item_labels, set_point_labels
-from utilities.funcs_training import set_training_stat_frames, calculate_ranged_training_cost
+from utilities.funcs_training import set_training_stat_frames, calculate_ranged_training_cost, train
+
 
 def get_auction_time():
 	pass
@@ -52,7 +49,7 @@ def activate():
 
 
 if __name__ == '__main__':
-	root = Tkinter.Tk()
+	root = Tk()
 	tab_control = ttk.Notebook(root)
 
 	character_tab = ttk.Frame(tab_control)
@@ -168,8 +165,8 @@ if __name__ == '__main__':
 	auction_frame.pack(side=LEFT)
 	auction_status = Label(auction_frame, text="Auction Remaining: ")
 	auction_status.pack(side=TOP)
-	m_auction_status = Label(m_auction_frame, text="Mercenary Auction Remaining: ")
-	m_auction_status.pack(side=TOP)
+	#m_auction_status = Label(m_auction_frame, text="Mercenary Auction Remaining: ")
+	#m_auction_status.pack(side=TOP)
 	mercenary_auction_frame = Frame(auction_tab)
 	mercenary_auction_frame.pack(side=LEFT)
 	mercenary_auction_status = Label(mercenary_auction_frame, text="Remaining: ")

@@ -3,8 +3,6 @@ from enums.xpath_enums import Character
 from enums.enums import Stats
 import time
 from . import driver, MAIN_LINK, HASH_CODE
-from util import wait_until_find_xpath, wait_until_find_xpaths, log
-
 
 training_dict = {}
 training_dict[Stats.STR] = Training.STR

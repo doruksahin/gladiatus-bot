@@ -1,6 +1,6 @@
 from enums.xpath_enums import Character, Cooldown, PointRemaining, PointMax, ArenaRank
-from . import driver, MAIN_LINK, HASH_CODE
-from util import wait_until_find_xpath, wait_until_find_xpaths, log
+from . import driver
+from src.util.util import wait_until_find_xpath, log
 
 
 def set_stat_labels(labels):

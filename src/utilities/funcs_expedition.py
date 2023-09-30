@@ -1,7 +1,7 @@
 from enums.xpath_enums import Reporting
 import time
 from . import driver, MAIN_LINK, HASH_CODE
-from util import wait_until_find_xpath, wait_until_find_xpaths, log
+from src.util.util import wait_until_find_xpath, log
 
 
 expedition_area_links = ['?mod=location&loc={}&sh='.format(i) for i in range(7)]
